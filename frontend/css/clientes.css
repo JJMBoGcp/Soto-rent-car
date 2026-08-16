@@ -1,0 +1,361 @@
+
+.admin-page {
+    background-color: var(--color-principal);
+    min-height: 100vh;
+}
+
+
+.admin-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 18px 5%;
+    background-color: rgba(8, 13, 22, 0.97);
+    border-bottom: 1px solid var(--color-borde);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.admin-logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    color: var(--color-blanco);
+    font-weight: 800;
+}
+
+.admin-logo img {
+    width: 38px;
+}
+
+.admin-nav {
+    display: flex;
+    gap: 25px;
+}
+
+.admin-nav a {
+    color: var(--color-gris);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.9rem;
+    transition: color 0.3s ease;
+}
+
+.admin-nav a:hover,
+.admin-nav a.active {
+    color: #a7adb8;
+}
+
+/* ---------- MAIN / TOOLBAR ---------- */
+.admin-main {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 5%;
+}
+
+.admin-toolbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-bottom: 25px;
+}
+
+.admin-toolbar h1 {
+    font-size: 1.8rem;
+    margin-bottom: 5px;
+}
+
+.admin-toolbar p {
+    color: var(--color-gris);
+    font-size: 0.9rem;
+}
+
+/* ---------- BUSCADOR ---------- */
+.buscar-input {
+    width: 100%;
+    padding: 13px 16px;
+    margin-bottom: 20px;
+    background-color: var(--color-gris-claro);
+    color: var(--color-blanco);
+    border: 1px solid var(--color-borde);
+    border-radius: 9px;
+    font-family: inherit;
+    font-size: 0.9rem;
+    outline: none;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.buscar-input::placeholder {
+    color: #666976;
+}
+
+.buscar-input:focus {
+    border-color: var(--color-secundario);
+    box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.1);
+}
+
+/* ---------- TABLA ---------- */
+.table-wrapper {
+    background-color: var(--color-gris-claro);
+    border: 1px solid var(--color-borde);
+    border-radius: var(--radio);
+    overflow-x: auto;
+    box-shadow: var(--sombra);
+}
+
+.admin-table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 750px;
+}
+
+.admin-table thead {
+    background-color: var(--color-principal-dark);
+}
+
+.admin-table th {
+    text-align: left;
+    padding: 14px 18px;
+    color: var(--color-secundario);
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 0.72rem;
+    letter-spacing: 0.5px;
+}
+
+.admin-table tbody tr {
+    border-top: 1px solid var(--color-borde);
+    transition: background-color 0.2s ease;
+}
+
+.admin-table tbody tr:hover {
+    background-color: rgba(212, 175, 55, 0.05);
+}
+
+.admin-table td {
+    padding: 14px 18px;
+    color: var(--color-blanco);
+    font-size: 0.9rem;
+    vertical-align: middle;
+}
+
+.admin-table td.loading {
+    text-align: center;
+    color: var(--color-gris);
+    padding: 40px;
+}
+
+/* Nombre + subtítulo dentro de una celda (usado también en vehículos) */
+.vehicle-name {
+    font-weight: 600;
+    color: var(--color-blanco);
+}
+
+.vehicle-category {
+    color: var(--color-gris);
+    font-size: 0.8rem;
+    margin-top: 2px;
+}
+
+/* ---------- BADGE DE ESTADO ---------- */
+.status {
+    display: inline-block;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 700;
+}
+
+.status-disponible {
+    background-color: rgba(46, 204, 113, 0.15);
+    color: #2ecc71;
+    border: 1px solid rgba(46, 204, 113, 0.4);
+}
+
+.status-alquilado {
+    background-color: rgba(231, 76, 60, 0.15);
+    color: #e74c3c;
+    border: 1px solid rgba(231, 76, 60, 0.4);
+}
+
+.status-mantenimiento {
+    background-color: rgba(212, 175, 55, 0.15);
+    color: var(--color-secundario);
+    border: 1px solid rgba(212, 175, 55, 0.4);
+}
+
+/* ---------- ACCIONES DE FILA ---------- */
+.actions {
+    display: flex;
+    gap: 8px;
+}
+
+.btn-edit,
+.btn-delete {
+    background: none;
+    border: 1px solid var(--color-borde);
+    color: var(--color-gris);
+    border-radius: 6px;
+    padding: 6px 12px;
+    font-size: 0.78rem;
+    font-family: inherit;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.btn-edit:hover {
+    border-color: var(--color-secundario);
+    color: var(--color-secundario);
+}
+
+.btn-delete:hover {
+    border-color: #e74c3c;
+    color: #e74c3c;
+}
+
+/* ---------- MODAL ---------- */
+.modal {
+    position: fixed;
+    inset: 0;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    background: rgba(5, 8, 14, 0.75);
+    backdrop-filter: blur(3px);
+    padding: 20px;
+    z-index: 999;
+}
+
+.modal.show {
+    display: flex;
+}
+
+.modal-content {
+    width: 100%;
+    max-width: 480px;
+    max-height: 90vh;
+    overflow-y: auto;
+    background-color: var(--color-gris-claro);
+    border: 1px solid var(--color-borde);
+    border-radius: var(--radio);
+    padding: 30px;
+    box-shadow: var(--sombra-hover);
+}
+
+.modal-header-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.modal-header-row h2 {
+    font-size: 1.3rem;
+    color: var(--color-blanco);
+}
+
+.btn-cerrar {
+    background: none;
+    border: none;
+    color: var(--color-gris);
+    font-size: 1.6rem;
+    line-height: 1;
+    cursor: pointer;
+    transition: color 0.2s ease;
+}
+
+.btn-cerrar:hover {
+    color: var(--color-secundario);
+}
+
+/* ---------- FORMULARIO (dentro del modal) ---------- */
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+}
+
+.form-group {
+    margin-bottom: 18px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 7px;
+    font-size: 0.88rem;
+    font-weight: 600;
+    color: var(--color-blanco);
+}
+
+.form-group input,
+.form-group select {
+    width: 100%;
+    padding: 12px 14px;
+    background: #0d131e;
+    color: var(--color-blanco);
+    border: 1px solid var(--color-borde);
+    border-radius: 8px;
+    font-family: inherit;
+    font-size: 0.9rem;
+    outline: none;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form-group input::placeholder {
+    color: #666976;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+    border-color: var(--color-secundario);
+    box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.1);
+}
+
+.ayuda-campo {
+    display: block;
+    color: var(--color-gris);
+    font-size: 0.76rem;
+    margin-top: 6px;
+}
+
+.form-message {
+    text-align: center;
+    font-size: 0.85rem;
+    min-height: 18px;
+    margin: 5px 0;
+    color: #e74c3c;
+}
+
+.modal-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+/* ---------- RESPONSIVE ---------- */
+@media (max-width: 700px) {
+    .admin-nav {
+        gap: 15px;
+    }
+
+    .admin-toolbar {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
+
+@media (max-width: 500px) {
+    .form-row {
+        grid-template-columns: 1fr;
+    }
+
+    .modal-content {
+        padding: 22px;
+    }
+}

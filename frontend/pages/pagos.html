@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pagos | Soto Rent Car</title>
+    <link rel="icon" type="image/png" href="/assets/img/ChatGPT Image 11 may 2026, 22_47_30.png">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/clientes.css">
+</head>
+<body class="admin-page">
+
+    <header class="admin-header">
+        <a href="../index.html" class="admin-logo">
+            <img src="/assets/img/ChatGPT Image 11 may 2026, 22_47_30.png" alt="Soto Rent Car">
+            <span>Soto Rent Car</span>
+        </a>
+        <nav class="admin-nav">
+            <a href="vehiculos.html">Vehículos</a>
+            <a href="clientes.html">Clientes</a>
+            <a href="reservas.html">Reservas</a>
+            <a href="pagos.html" class="active">Pagos</a>
+            <a href="usuarios.html">Usuarios</a>
+            <a href="dashboard.html">Panel de control</a>
+        </nav>
+    </header>
+
+    <main class="admin-main">
+        <div class="admin-toolbar">
+            <div>
+                <h1>Pagos</h1>
+                <p>Gestiona los pagos registrados por reserva.</p>
+            </div>
+            <button class="btn-primary" id="btn-nuevo">+ Nuevo pago</button>
+        </div>
+
+        <input
+            type="text"
+            id="buscar-pago"
+            class="buscar-input"
+            placeholder="Buscar por cliente, vehículo o método de pago..."
+        >
+
+        <div class="table-wrapper">
+            <table class="admin-table">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Cliente</th>
+                        <th>Vehículo</th>
+                        <th>Monto</th>
+                        <th>Método</th>
+                        <th>Fecha</th>
+                        <th>Estado</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody id="pagos-lista">
+                    <tr>
+                        <td colspan="8" class="loading">Cargando pagos...</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </main>
+
+    <div class="modal" id="modal-pago">
+        <div class="modal-content">
+            <div class="modal-header-row">
+                <h2 id="modal-title">Nuevo pago</h2>
+                <button class="btn-cerrar" id="btn-cerrar-modal">&times;</button>
+            </div>
+
+            <form id="pago-form">
+                <input type="hidden" id="id_pago">
+
+                <div class="form-group">
+                    <label for="id_reserva">Reserva</label>
+                    <select id="id_reserva" required>
+                        <option value="">Selecciona una reserva...</option>
+                    </select>
+                    <small class="ayuda-campo" id="info-reserva"></small>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="monto">Monto (RD$)</label>
+                        <input type="number" id="monto" step="0.01" min="0" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="fecha_pago">Fecha de pago</label>
+                        <input type="date" id="fecha_pago" required>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="metodo_pago">Método de pago</label>
+                        <select id="metodo_pago" required>
+                            <option value="Efectivo">Efectivo</option>
+                            <option value="Tarjeta">Tarjeta</option>
+                            <option value="Transferencia">Transferencia</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="estado">Estado</label>
+                        <select id="estado" required>
+                            <option value="Completado">Completado</option>
+                            <option value="Parcial">Parcial</option>
+                            <option value="Pendiente">Pendiente</option>
+                        </select>
+                    </div>
+                </div>
+
+                <p id="form-message" class="form-message"></p>
+
+                <div class="modal-actions">
+                    <button type="button" class="btn-secondary" id="btn-cancelar">Cancelar</button>
+                    <button type="submit" class="btn-primary">Guardar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="../js/pagos.js"></script>
+</body>
+</html>

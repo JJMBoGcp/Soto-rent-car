@@ -1,0 +1,258 @@
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --negro: #080d16;
+    --negro-card: #1b2330;
+    --negro-input: #0d131e;
+
+    --dorado: #d4af37;
+    --dorado-hover: #b8941f;
+
+    --blanco: #ffffff;
+    --gris: #a7adb8;
+
+    --borde: #293241;
+}
+
+body {
+    font-family: "Montserrat", Arial, sans-serif;
+    background:
+        radial-gradient(circle at top, rgba(212, 175, 55, 0.08), transparent 35%),
+        var(--negro);
+    color: var(--blanco);
+    min-height: 100vh;
+}
+
+/*  CONTENEDOR */
+.login-container {
+    min-height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 20px;
+}
+
+/*  LOGO */
+.login-logo {
+    margin-bottom: 25px;
+}
+
+.login-logo a {
+    display: block;
+}
+
+.login-logo img {
+    width: 190px;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+    transition: transform 0.3s ease;
+}
+
+.login-logo img:hover {
+    transform: scale(1.03);
+}
+
+/* CARD  */
+.login-card {
+    width: 100%;
+    max-width: 430px;
+    background: var(--negro-card);
+    border: 1px solid var(--borde);
+    border-radius: 18px;
+    padding: 40px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+}
+
+/*  HEADER */
+.login-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.login-subtitle {
+    color: var(--dorado);
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 3px;
+    margin-bottom: 10px;
+}
+
+.login-header h1 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+    color: var(--blanco);
+}
+
+.login-header p:last-child {
+    color: var(--gris);
+    font-size: 0.9rem;
+}
+
+/*  FORMULARIO -*/
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--blanco);
+}
+
+.form-group input {
+    width: 100%;
+    padding: 14px 15px;
+    background: var(--negro-input);
+    color: var(--blanco);
+    border: 1px solid var(--borde);
+    border-radius: 9px;
+    outline: none;
+    font-size: 0.95rem;
+    font-family: inherit;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form-group input::placeholder {
+    color: #666976;
+}
+
+.form-group input:focus {
+    border-color: var(--dorado);
+    box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.1);
+}
+
+/*  OPCIONES */
+.login-options {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 25px;
+    font-size: 0.8rem;
+}
+
+.remember {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    color: var(--gris);
+    cursor: pointer;
+}
+
+.remember input {
+    width: auto;
+    accent-color: var(--dorado);
+    cursor: pointer;
+}
+
+.login-options a {
+    color: var(--dorado);
+    text-decoration: none;
+}
+
+.login-options a:hover {
+    color: var(--dorado-hover);
+    text-decoration: underline;
+}
+
+/*  BOTÓN - */
+.login-button {
+    width: 100%;
+    padding: 14px;
+    border: none;
+    border-radius: 9px;
+    background: var(--dorado);
+    color: var(--negro);
+    font-size: 0.95rem;
+    font-weight: 700;
+    font-family: inherit;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+}
+
+.login-button:hover {
+    background: var(--dorado-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(212, 175, 55, 0.2);
+}
+
+.login-button:active {
+    transform: translateY(0);
+}
+
+.login-button:disabled {
+    background: var(--borde);
+    color: var(--gris);
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+}
+
+/*MENSAJE  */
+.login-message {
+    text-align: center;
+    margin-top: 15px;
+    min-height: 20px;
+    font-size: 0.85rem;
+}
+
+.login-message.error {
+    color: #e74c3c;
+}
+
+.login-message.success {
+    color: #2ecc71;
+}
+
+/*  VOLVER  */
+.back-home {
+    text-align: center;
+    margin-top: 25px;
+}
+
+.back-home a {
+    color: var(--gris);
+    text-decoration: none;
+    font-size: 0.85rem;
+    transition: color 0.3s ease;
+}
+
+.back-home a:hover {
+    color: var(--dorado);
+}
+
+/*RESPONSIVE  */
+@media (max-width: 500px) {
+    .login-container {
+        padding: 25px 15px;
+    }
+
+    .login-logo img {
+        width: 150px;
+    }
+
+    .login-card {
+        padding: 30px 22px;
+        border-radius: 14px;
+    }
+
+    .login-header h1 {
+        font-size: 1.7rem;
+    }
+
+    .login-options {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}

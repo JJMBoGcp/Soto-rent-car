@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crear cuenta | Soto Rent Car</title>
+    <meta name="description" content="Crea tu cuenta en Soto Rent Car para reservar vehículos y gestionar tus alquileres.">
+    <meta name="author" content="Soto Rent Car">
+    <link rel="icon" type="image/png" href="/assets/img/ChatGPT Image 11 may 2026, 22_47_30.png">
+    <link rel="stylesheet" href="../css/login.css">
+</head>
+<body>
+
+    <main class="login-container">
+        <div class="login-logo">
+            <a href="../index.html">
+                <img src="/assets/img/ChatGPT Image 11 may 2026, 22_47_30.png" alt="Soto Rent Car">
+            </a>
+        </div>
+
+        <section class="login-card">
+            <div class="login-header">
+                <p class="login-subtitle">SOTO RENT CAR</p>
+                <h1>Crear cuenta</h1>
+                <p>Regístrate para reservar vehículos.</p>
+            </div>
+
+            <form id="registro-form">
+                <div class="form-group">
+                    <label for="nombre">Nombre</label>
+                    <input
+                        type="text"
+                        id="nombre"
+                        name="nombre"
+                        placeholder="Tu nombre"
+                        required
+                    >
+                </div>
+
+                <div class="form-group">
+                    <label for="apellido">Apellido</label>
+                    <input
+                        type="text"
+                        id="apellido"
+                        name="apellido"
+                        placeholder="Tu apellido"
+                        required
+                    >
+                </div>
+
+                <div class="form-group">
+                    <label for="correo">Correo electrónico</label>
+                    <input
+                        type="email"
+                        id="correo"
+                        name="correo"
+                        placeholder="ejemplo@gmail.com"
+                        autocomplete="email"
+                        required
+                    >
+                </div>
+
+                <div class="form-group">
+                    <label for="contrasena">Contraseña</label>
+                    <input
+                        type="password"
+                        id="contrasena"
+                        name="contrasena"
+                        placeholder="Mínimo 6 caracteres"
+                        autocomplete="new-password"
+                        minlength="6"
+                        required
+                    >
+                </div>
+
+                <div class="form-group">
+                    <label for="telefono">Teléfono</label>
+                    <input
+                        type="tel"
+                        id="telefono"
+                        name="telefono"
+                        placeholder="809-000-0000"
+                    >
+                </div>
+
+                <div class="form-group">
+                    <label for="licencia">Licencia de conducir</label>
+                    <input
+                        type="text"
+                        id="licencia"
+                        name="licencia"
+                        placeholder="Número de licencia"
+                    >
+                </div>
+
+                <div class="form-group">
+                    <label for="direccion">Dirección</label>
+                    <input
+                        type="text"
+                        id="direccion"
+                        name="direccion"
+                        placeholder="Tu dirección"
+                    >
+                </div>
+
+                <button type="submit" class="login-button" id="registro-btn">
+                    Crear cuenta
+                </button>
+
+                <p id="registro-message" class="login-message"></p>
+            </form>
+
+            <div class="back-home">
+                <a href="login.html">¿Ya tienes cuenta? Inicia sesión</a>
+            </div>
+        </section>
+    </main>
+
+    <script src="../js/registro.js"></script>
+</body>
+</html>

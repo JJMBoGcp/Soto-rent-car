@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reservas | Soto Rent Car</title>
+    <link rel="icon" type="image/png" href="/assets/img/ChatGPT Image 11 may 2026, 22_47_30.png">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/clientes.css">
+</head>
+<body class="admin-page">
+
+    <header class="admin-header">
+        <a href="../index.html" class="admin-logo">
+            <img src="/assets/img/ChatGPT Image 11 may 2026, 22_47_30.png" alt="Soto Rent Car">
+            <span>Soto Rent Car</span>
+        </a>
+        <nav class="admin-nav">
+             <a href="vehiculos.html">Vehículos</a>
+            <a href="clientes.html">Clientes</a>
+            <a href="reservas.html">Reservas</a>
+            <a href="pagos.html" class="active">Pagos</a>
+            <a href="usuarios.html">Usuarios</a>
+            <a href="dashboard.html">Panel de control</a>
+        </nav>
+    </header>
+
+    <main class="admin-main">
+        <div class="admin-toolbar">
+            <div>
+                <h1>Reservas</h1>
+                <p>Gestiona las reservas de vehículos.</p>
+            </div>
+            <button class="btn-primary" id="btn-nuevo">+ Nueva reserva</button>
+        </div>
+
+        <input
+            type="text"
+            id="buscar-reserva"
+            class="buscar-input"
+            placeholder="Buscar por cliente, vehículo o placa..."
+        >
+
+        <div class="table-wrapper">
+            <table class="admin-table">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Cliente</th>
+                        <th>Vehículo</th>
+                        <th>Placa</th>
+                        <th>Fecha inicio</th>
+                        <th>Fecha fin</th>
+                        <th>Total</th>
+                        <th>Estado</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody id="reservas-lista">
+                    <tr>
+                        <td colspan="9" class="loading">Cargando reservas...</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </main>
+
+    <!-- ================= MODAL ================= -->
+    <div class="modal" id="modal-reserva">
+        <div class="modal-content">
+            <div class="modal-header-row">
+                <h2 id="modal-title">Nueva reserva</h2>
+                <button class="btn-cerrar" id="btn-cerrar-modal">&times;</button>
+            </div>
+
+            <form id="reserva-form">
+                <input type="hidden" id="id_reserva">
+
+                <div class="form-group">
+                    <label for="id_cliente">Cliente</label>
+                    <select id="id_cliente" required>
+                        <option value="">Selecciona un cliente...</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="id_vehiculo">Vehículo</label>
+                    <select id="id_vehiculo" required>
+                        <option value="">Selecciona un vehículo...</option>
+                    </select>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="fecha_inicio">Fecha inicio</label>
+                        <input type="date" id="fecha_inicio" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="fecha_fin">Fecha fin</label>
+                        <input type="date" id="fecha_fin" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="estado">Estado</label>
+                    <select id="estado" required>
+                        <option value="Pendiente">Pendiente</option>
+                        <option value="Confirmada">Confirmada</option>
+                        <option value="Activa">Activa</option>
+                        <option value="Finalizada">Finalizada</option>
+                        <option value="Cancelada">Cancelada</option>
+                    </select>
+                </div>
+
+                <p id="total-estimado" class="ayuda-campo"></p>
+
+                <p id="form-message" class="form-message"></p>
+
+                <div class="modal-actions">
+                    <button type="button" class="btn-secondary" id="btn-cancelar">Cancelar</button>
+                    <button type="submit" class="btn-primary">Guardar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="../js/reservas.js"></script>
+</body>
+</html>

@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Vehículos | Soto Rent Car</title>
+
+    <meta
+        name="description"
+        content="Gestión de vehículos de Soto Rent Car."
+    >
+
+    <link
+        rel="icon"
+        type="image/png"
+        href="/assets/img/ChatGPT Image 11 may 2026, 22_47_30.png"
+    >
+
+    <link
+        rel="stylesheet"
+        href="../css/vehiculos.css"
+    >
+
+</head>
+
+<body>
+
+    <!-- SIDEBAR -->
+
+    <aside class="sidebar">
+
+        <div class="sidebar-logo">
+
+            <a href="dashboard.html">
+
+                <img
+                    src="/assets/img/ChatGPT Image 11 may 2026, 22_47_30.png"
+                    alt="Soto Rent Car"
+                >
+
+            </a>
+
+        </div>
+
+
+        <nav class="sidebar-nav">
+
+            <p class="menu-title">
+                MENÚ PRINCIPAL
+            </p>
+
+            <a href="dashboard.html" class="nav-link">
+                <span>⌂</span>
+                Dashboard
+            </a>
+
+            <a href="usuarios.html" class="nav-link">
+                <span>♙</span>
+                Usuarios
+            </a>
+
+            <a href="clientes.html" class="nav-link">
+                <span>♧</span>
+                Clientes
+            </a>
+
+            <a
+                href="vehiculos.html"
+                class="nav-link active"
+            >
+                <span>▣</span>
+                Vehículos
+            </a>
+
+            <a href="reservas.html" class="nav-link">
+                <span>▦</span>
+                Reservas
+            </a>
+
+            <a href="pagos.html" class="nav-link">
+                <span>$</span>
+                Pagos
+            </a>
+
+        </nav>
+
+
+        <div class="sidebar-bottom">
+
+            <a
+                href="../index.html"
+                class="nav-link"
+            >
+                <span>←</span>
+                Volver al sitio
+            </a>
+
+            <a
+                href="login.html"
+                class="nav-link logout"
+            >
+                <span>↪</span>
+                Cerrar sesión
+            </a>
+
+        </div>
+
+    </aside>
+
+
+    <!-- =========================
+         CONTENIDO
+    ========================== -->
+
+    <div class="main-wrapper">
+
+        <header class="topbar">
+
+            <div>
+
+                <p class="topbar-label">
+                    SOTO RENT CAR
+                </p>
+
+                <h1>
+                    Vehículos
+                </h1>
+
+            </div>
+
+            <div class="user-info">
+
+                <div class="user-avatar">
+                    A
+                </div>
+
+                <div>
+
+                    <strong>
+                        Administrador
+                    </strong>
+
+                    <span>
+                        Panel administrativo
+                    </span>
+
+                </div>
+
+            </div>
+
+        </header>
+
+
+        <main class="content">
+
+
+            <!-- =========================
+                 ENCABEZADO
+            ========================== -->
+
+            <section class="page-header">
+
+                <div>
+
+                    <p class="section-label">
+                        GESTIÓN DE FLOTA
+                    </p>
+
+                    <h2>
+                        Nuestros vehículos
+                    </h2>
+
+                    <p>
+                        Administra los vehículos disponibles
+                        para alquiler.
+                    </p>
+
+                </div>
+
+
+                <button
+                    id="btn-nuevo"
+                    class="btn-primary"
+                >
+                    + Nuevo vehículo
+                </button>
+
+            </section>
+
+
+            <!-- =========================
+                 BUSCADOR
+            ========================== -->
+
+            <section class="toolbar">
+
+                <div class="search-box">
+
+                    <span>
+                        🔎
+                    </span>
+
+                    <input
+                        type="text"
+                        id="buscar-vehiculo"
+                        placeholder="Buscar por marca, modelo o placa..."
+                    >
+
+                </div>
+
+            </section>
+
+
+            <!-- =========================
+                 TABLA
+            ========================== -->
+
+            <section class="table-card">
+
+                <div class="table-container">
+
+                    <table>
+
+                        <thead>
+
+                            <tr>
+
+                                <th>
+                                    ID
+                                </th>
+
+                                <th>
+                                    Vehículo
+                                </th>
+
+                                <th>
+                                    Año
+                                </th>
+
+                                <th>
+                                    Color
+                                </th>
+
+                                <th>
+                                    Categoría
+                                </th>
+
+                                <th>
+                                    Placa
+                                </th>
+
+                                <th>
+                                    Precio / Día
+                                </th>
+
+                                <th>
+                                    Estado
+                                </th>
+
+                                <th>
+                                    Acciones
+                                </th>
+
+                            </tr>
+
+                        </thead>
+
+
+                        <tbody id="vehiculos-lista">
+
+                            <tr>
+
+                                <td
+                                    colspan="9"
+                                    class="loading"
+                                >
+                                    Cargando vehículos...
+                                </td>
+
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            </section>
+
+
+        </main>
+
+
+        <footer class="footer">
+
+            © 2026 Soto Rent Car.
+            Todos los derechos reservados.
+
+        </footer>
+
+    </div>
+
+
+    <!-- =========================
+         MODAL
+    ========================== -->
+
+    <div
+        id="modal-vehiculo"
+        class="modal"
+    >
+
+        <div class="modal-content">
+
+
+            <div class="modal-header">
+
+                <div>
+
+                    <p class="section-label">
+                        VEHÍCULOS
+                    </p>
+
+                    <h2 id="modal-title">
+                        Nuevo vehículo
+                    </h2>
+
+                </div>
+
+                <button
+                    id="btn-cerrar-modal"
+                    class="btn-close"
+                >
+                    ×
+                </button>
+
+            </div>
+
+
+            <!-- FORMULARIO -->
+
+            <form id="vehiculo-form">
+
+                <input
+                    type="hidden"
+                    id="id_vehiculo"
+                >
+
+
+                <div class="form-grid">
+
+
+                    <div class="form-group">
+
+                        <label for="marca">
+                            Marca
+                        </label>
+
+                        <input
+                            type="text"
+                            id="marca"
+                            required
+                            placeholder="Toyota"
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="modelo">
+                            Modelo
+                        </label>
+
+                        <input
+                            type="text"
+                            id="modelo"
+                            required
+                            placeholder="Corolla"
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="anio">
+                            Año
+                        </label>
+
+                        <input
+                            type="number"
+                            id="anio"
+                            required
+                            placeholder="2024"
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="color">
+                            Color
+                        </label>
+
+                        <input
+                            type="text"
+                            id="color"
+                            required
+                            placeholder="Blanco"
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="categoria">
+                            Categoría
+                        </label>
+
+                        <select
+                            id="categoria"
+                            required
+                        >
+
+                            <option value="">
+                                Seleccionar
+                            </option>
+
+                            <option value="Sedan">
+                                Sedan
+                            </option>
+
+                            <option value="SUV">
+                                SUV
+                            </option>
+
+                            <option value="Pickup">
+                                Pickup
+                            </option>
+
+                            <option value="Minivan">
+                                Minivan
+                            </option>
+
+                            <option value="Compacto">
+                                Compacto
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="placa">
+                            Placa
+                        </label>
+
+                        <input
+                            type="text"
+                            id="placa"
+                            required
+                            placeholder="A12345"
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="precio_dia">
+                            Precio por día
+                        </label>
+
+                        <input
+                            type="number"
+                            id="precio_dia"
+                            min="0"
+                            step="0.01"
+                            required
+                            placeholder="50.00"
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="estado">
+                            Estado
+                        </label>
+
+                        <select
+                            id="estado"
+                            required
+                        >
+
+                            <option value="Disponible">
+                                Disponible
+                            </option>
+
+                            <option value="Alquilado">
+                                Alquilado
+                            </option>
+
+                            <option value="Mantenimiento">
+                                Mantenimiento
+                            </option>
+
+                        </select>
+
+                    </div>
+
+                </div>
+
+
+                <p
+                    id="form-message"
+                    class="form-message"
+                ></p>
+
+
+                <div class="modal-actions">
+
+                    <button
+                        type="button"
+                        id="btn-cancelar"
+                        class="btn-secondary"
+                    >
+                        Cancelar
+                    </button>
+
+                    <button
+                        type="submit"
+                        class="btn-primary"
+                    >
+                        Guardar vehículo
+                    </button>
+
+                </div>
+
+            </form>
+
+        </div>
+
+    </div>
+
+
+    <script src="../js/vehiculos.js"></script>
+
+</body>
+
+</html>
